@@ -8,4 +8,5 @@ require_once 'controllers/'.$classe.'.php';
 
 $objeto = new $classe();
 $objeto->$metodo();
+
 ?>
