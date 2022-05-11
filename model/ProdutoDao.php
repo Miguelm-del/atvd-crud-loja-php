@@ -1,6 +1,7 @@
 <?php
 require_once 'Database.php';
 
+
 class ProdutoDAO{
     private $conexao;
 
@@ -10,14 +11,14 @@ class ProdutoDAO{
     }
 
     function store($produto){
-        $stmt = $this->conexao->prepare("INSERT INTO produtos (nome, descricao,	preco, caminho_imagem, categorias, quantidade,ncm) VALUES (nome = :nome, descricao = :descricao, preco = :preco, caminho_imagem = :caminho_imagem, categorias = :categorias, quantidade = :quantidade, ncm = :ncm)");
+        $stmt = $this->conexao->prepare("INSERT INTO produtos (nome, descricao, preco, caminho_imagem, categoria_id, quantidade,ncm) VALUES (:nome, :descricao, :preco, :caminho_imagem, :categoria_id, :quantidade, :ncm);");
         $stmt->bindValue(':nome', $produto->getNome());
         $stmt->bindValue(':descricao', $produto->getDescricao());
-        $stmt->bindValue(':categorias', $produto->getCategorias());
-        $stmt->bindValue(':preco', $produto->getPreco());
-        $stmt->bindValue(':caminho_imagem', $produto->getCaminho_imagem());
-        $stmt->bindValue(':ncm', $produto->getNcm());
+        $stmt->bindValue(':categoria_id', $produto->getCategorias());
         $stmt->bindValue(':quantidade', $produto->getQuantidade());
+        $stmt->bindValue(':preco', $produto->getPreco());
+        $stmt->bindValue(':ncm', $produto->getNcm());
+        $stmt->bindValue(':caminho_imagem', $produto->getCaminho_imagem());
         return $stmt->execute();
     }
 }

@@ -1,18 +1,30 @@
-<html>
-    <?php
-        if($_REQUEST)
-            if($_REQUEST['sucesso'] == true)
-                echo "Produto inserido com sucesso";
-    ?>
-    <h1>Cadastrar Produto</h1>
-    <form action="../index.php?classe=Produtos&acao=store" method="POST">
-        Nome: <input name="nome"></input><br>
-        Descrição: <input name="descricao"></input><br>
-        Categorias: <input name="categorias"></input><br>
-        Quantidade: <input name="quantidade"></input><br>
-        Preço: <input name="preco"></input><br>
-        NCM: <input name="ncm"></input><br>
-        Imagem: <input name="caminho_imagem"></input><br>
-        <input type="submit"/>
-    </form>
+<html lang="pt">
+<?php
+if ($_REQUEST)
+    if ($_REQUEST['sucesso']) {
+        echo "Produto inserido com sucesso";
+    } else {
+        echo "Error";
+    }
+
+?>
+<h1>Cadastrar Produto</h1>
+<form action="../index.php?classe=Produtos&acao=store" method="POST">
+    <label>Nome:<input name="nome" style="display: block"></label>
+    <br>
+    <label>Descrição:<input name="descricao" style="display: block"></label>
+    <br>
+    <label>Categorias:<input name="categoria_id" style="display: block"></label>
+    <br>
+    <label>Quantidade:<input name="quantidade" style="display: block"></label>
+    <br>
+    <label>Preço:<input name="preco" style="display: block"></label>
+    <br>
+    <label>NCM:<input name="ncm" style="display: block"></label>
+    <br>
+    <label>Imagem:<input name="caminho_imagem" style="display: block"></label>
+    <br>
+
+    <input type="submit" style="background-color: green"/>
+</form>
 </html>

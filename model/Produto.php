@@ -5,7 +5,7 @@ class Produto{
     private $descricao;
     private $preco;
     private $caminho_imagem;
-    private $categorias;
+    private $categoria_id;
     private $quantidade;
     private $ncm;
 
@@ -75,7 +75,7 @@ class Produto{
      */ 
     public function getCategorias()
     {
-        return $this->categorias;
+        return $this->categoria_id;
     }
 
     /**
@@ -85,7 +85,7 @@ class Produto{
      */ 
     public function setCategorias($categorias)
     {
-        $this->categorias = $categorias;
+        $this->categoria_id = $categorias;
 
         return $this;
     }
