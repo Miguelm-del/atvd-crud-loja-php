@@ -16,6 +16,7 @@ class ProdutosController{
         $this->produto->setPreco($_REQUEST['preco']);
         $this->produto->setCategorias($_REQUEST['categorias']);
         $this->produto->setNcm($_REQUEST['ncm']);
+
         if($this->produtoDao->store($this->produto)){
             $_REQUEST['sucesso'] = true;
             require_once 'view/produto.php';
